@@ -11,22 +11,18 @@ function App() {
     const resetNumber = () => {
         setNumber(0)
     }
-    let buttonStatus = false
-    if (number >= 5) {
-        buttonStatus = true
-    }
     return (
         <div className={s.App}>
-            <div className={buttonStatus ? s.fieldStop : s.field}>
+            <div className={number >= 5 ? s.fieldStop : s.field}>
                 <Counter
                     number={number}
-                    className={buttonStatus ? s.counterField : s.buttonField}
+                    className={number >= 5 ? s.counterField : s.buttonField}
                 />
                 <div>
                     <Button
                         name={"+1"}
                         callBack={addNumber}
-                        buttonStatus={buttonStatus}
+                        buttonStatus={number >= 5}
                         className={s.buttonField}
                     />
                     <Button
